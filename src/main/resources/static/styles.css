@@ -1,0 +1,142 @@
+:root {
+	--alturacabecera: 85px;
+	--alturaPie: 60px;
+	--alturaMenu: 50px;
+	--anchuraElemMenu: 200px;
+
+	--paddingGeneral: 5px;
+
+	--color1: #fff9e8;
+	--color2: #fee59c;
+	--color3: #fac72d;
+	--color4: #9bbdf9;
+	--color5: #c4e0f9;
+	--color6: #b95f89;
+
+	--fuenteSerif: "Cinzel";
+	--fuenteSans: "Rubik";
+}
+
+* {
+	margin: 0;
+	padding: 0;
+
+	font-family: var(--fuenteSans);
+}
+
+/*CABECERA*/
+
+header {
+	background-color: var(--color6);
+	padding: var(--paddingGeneral);
+	height: var(--alturacabecera);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	/*esto es en el eje horizontal*/
+	align-items: flex-end;
+	/*esto es en el eje vertical*/
+}
+
+#header_der {
+	width: 100%;
+}
+
+h1 {
+	font-family: var(--fuenteSerif);
+	font-size: 70px;
+	color: var(--color1);
+
+}
+
+#header_izq {
+	width: 150px;
+
+}
+
+#header_izq img {
+	padding: var(--paddingGeneral);
+}
+/*MENU*/
+nav{
+    background-color: var(--color3);
+    box-shadow:  0 4px 8px rgba(40, 36, 36, 0.3);
+}
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start; /*esto es en el eje horizontal*/
+    align-items: flex-end; /*esto es en el eje vertical*/
+}
+nav ul li{
+    list-style: none;
+    
+}
+
+.enlace{
+    display: inline-block;
+    width: var(--anchuraElemMenu);
+    height: var(--alturaMenu);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 22px;
+    color:var(--color6);
+}
+
+/*hover es para cuando pasas el raton por encima */
+.enlace:hover{
+    background-color: var(--color1);
+    color: var(--color6);
+}
+
+
+/*Cuando le clickas*/
+.enlace:active{
+    background-color: var(--color1);
+    color: var(--color4);
+}
+
+.mensaje{
+	background-color: var(--color2);
+	color:var(--color6);
+	font-family: var(--fuenteSerif);
+	font-size: 20px;
+}
+
+/*CUERPO DE LA PAIGINA*/
+main {
+	background-image:var(--color1);
+	background-size: 100%;
+    background-position: center;
+	padding: var(--paddingGeneral);
+	min-height: calc(100vh - (var(--alturacabecera) + var(--alturaPie) + var(--alturaMenu) + calc(4 * var(--paddingGeneral))));
+	/*calc se usa para calcular y 100vh altura vertical 100%*/
+
+}
+
+/*PIE DE PAGINA*/
+footer {
+	background-color: var(--color6);
+	height: var(--alturaPie);
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+
+}
+
+footer p {
+	margin-bottom: var(--paddingGeneral);
+	font-size: 22px;
+	color: var(--color1);
+	font-weight: bold;
+}

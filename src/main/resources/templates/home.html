@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/styles_grid.css}">
+	<title>Mis Discos</title>
+</head>
+
+<body>
+	<div th:include="plantilla.html::cabecera"></div>
+	<div th:include="plantilla.html::menu"> </div>
+	<main>
+		<aside class="contenedor_grid">
+			<article th:each="elemento : ${art_listaDiscos}">
+				<a th:href="@{'/modificarDisco/'+${elemento.id}}">
+					<img th:src="@{'images/discos/' + ${elemento.foto}}">
+				</a>
+			</article>
+		</aside>
+	</main>
+	<div th:include="plantilla.html::pie"></div>
+</body>
+
+</html>

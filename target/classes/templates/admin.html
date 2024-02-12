@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/styles_admin.css}">
+	<title>Mis Discos Admin</title>
+</head>
+
+<body>
+	<div th:include="plantilla.html::cabecera"></div>
+	<div th:include="plantilla.html::menu"> </div>
+	<main>
+		<h2 class = "title_newdisco">Nuevo Disco</h2>
+		<div class="main_formulario">
+			<form th:action="@{/guardarDisco}" th:object="${objeto_entidad}" method="post"
+				enctype="multipart/form-data">
+				<label for="nombre">Nombre</label>
+				<input type="text" th:field="*{nombre}" name="nombre" placeholder="Nombre" required>
+				<label for="num_canciones">Numero de Canciones</label>
+				<input type="text" th:field="*{num_canciones}" id="num_canciones" name="num_canciones" required
+					placeholder="Canciones" pattern="^[0-9]+$">
+				<label for="estilo_id">Estilo</label>
+				<select name="estilo.id" th:field="*{estilo.id}">
+					<option th:each="elemento : ${art_listaEstilos}" th:value="${elemento.id}"
+						th:text="${elemento.estilo}">
+					</option>
+				</select>
+				<label for="enlace_spotify">Enlace Spotify</label>
+				<input type="text" th:field="*{enlace_spotify}" name="enlace_spotify" placeholder="Enlace" required>
+				<label for="foto">Foto:</label>
+				<input type="file" id="foto" name="foto" accept="image/*" required>
+				<input type="submit" value="Enviar">
+			</form>
+		</div>
+
+		<a class = "backup" th:href="@{/crear_copia}">REALIZAR BACKUP FORMATO JSON</a>
+	</main>
+
+	<div th:include="plantilla.html::pie"></div>
+</body>
+
+</html>

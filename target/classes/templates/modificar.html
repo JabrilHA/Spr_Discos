@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" th:href="@{/styles.css}">
+	<link rel="stylesheet" th:href="@{/styles_modificar.css}">
+
+	<title>Modificar Disco</title>
+</head>
+
+<body>
+	<div th:include="plantilla.html::cabecera"></div>
+	<div th:include="plantilla.html::menu"> </div>
+	<main>
+		<section class="formulario">
+			<img th:if="${disco.isPresent()}" th:src="@{'/images/discos/' + ${disco.get().foto}}"
+					alt="Imagen del disco">
+			<form th:action="@{/modificacionDiscoCreado}" th:object="${disco}" method="post">
+
+				<input type="text" name="id" th:field="*{id}" readonly hidden
+					th:value="${disco.isPresent() ? disco.get().id : 'ID no disponible'}" />
+
+				<input type="text" name="enlace_spotify" th:field="*{enlace_spotify}" required hidden
+					th:value="${disco.isPresent() ? disco.get().enlace_spotify : 'Enlace no disponible'}" />
+				<br>
+
+				<label for="nombre">Nombre</label>
+				<input type="text" name="nombre" th:field="*{nombre}" required
+					th:value="${disco.isPresent() ? disco.get().nombre : 'Nombre no disponible'}" />
+				<br>
+
+				<label for="nombre">Numero Canciones</label>
+				<input type="text" name="num_canciones" th:field="*{num_canciones}" required
+					th:value="${disco.isPresent() ? disco.get().num_canciones : 'Canciones no disponible'}" />
+				<br>
+
+				<label for="estilo">Estilo</label>
+				<select name="estilo.id" th:field="*{estilo.id}" required>
+					<option th:each="elemento : ${atr_listaEstilos}" th:value="${elemento.id}"
+						th:text="${elemento.estilo}">
+					</option>
+				</select>
+
+				<input type="text" name="foto" th:field="*{foto}" required readonly hidden accept="image/*"
+					th:value="${disco.isPresent() ? disco.get().foto : 'Imagen no disponible'}" />
+
+				<input type="submit" value="Enviar">
+			</form>
+		</section>
+		
+		<div class="actions">
+			<a th:href="@{'/eliminarDisco/' + ${disco.get().id}}" class="borrar_disco">Borrar Disco</a>
+			<a th:href="@{${disco.get().enlace_spotify}}" class="spotify">Ir a Spotify</a>
+		</div>
+	</main>
+	
+	<div th:include="plantilla.html::pie"></div>
+</body>
+
+</html>

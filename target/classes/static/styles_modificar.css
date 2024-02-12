@@ -1,0 +1,118 @@
+:root{
+    --paddingGeneral:5px;
+    
+	--color1: #fff9e8;
+	--color2: #fee59c;
+	--color3: #fac72d;
+	--color4: #9bbdf9;
+	--color5: #c4e0f9;
+	--color6: #b95f89;
+	--color8: rgb(41, 18, 29);
+	--colorfondo: rgb(185, 244, 255);
+
+    --fuenteSerif: "Cinzel";
+	--fuenteSans: "Rubik";
+}
+*{
+	font-family: var(--fuenteSerif);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: left;
+    max-width: 800px;
+    width: 80%;
+}
+
+label{
+	color: var(--color8);
+}
+
+.formulario img {
+    width: 375px;
+    height: 375px;
+    margin-bottom: 20px;
+    border-radius: 3%;
+    box-shadow: 0 4px 8px rgba(40, 36, 36, 0.3);
+    margin-top: 40px;
+}
+
+input[type="text"],
+select {
+    width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: var(--color6);
+    color: var(--color1);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 50%;
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color2);
+    color: var(--color6);
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.actions a {
+    color: var(--color1);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    margin: 10px;
+    background-color: var(--color6);
+}
+
+.actions a:hover {
+    background-color: var(--color2);
+    color: var(--color6);
+}
+
+/*STYLES MOVIL*/
+@media screen and (max-width: 767px) {
+    .formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8%;
+    
+}
+}

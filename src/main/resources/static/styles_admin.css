@@ -1,0 +1,92 @@
+:root{
+    --paddingGeneral:10px;
+    
+	--color1: #fff9e8;
+	--color2: #fee59c;
+	--color3: #fac72d;
+	--color4: #9bbdf9;
+	--color5: #c4e0f9;
+	--color6: #b95f89;
+	--color7: rgb(217, 168, 191);
+	--color8: rgb(41, 18, 29);
+	--colorfondo: rgb(185, 244, 255);
+
+    --fuenteSerif: "Cinzel";
+	--fuenteSans: "Rubik";
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title_newdisco{
+	font-size: 40px;
+	font-family:var(--fuenteSans);
+	margin: 10px;
+	color: var(--color6);
+	
+}
+.main_formulario{
+	width: 50%;
+    padding: 20px;
+    border: 1px solid var(--color7);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color:var(--color6);
+}
+
+.main_formulario label{
+	margin-top: 10px;
+	font-size: 20px;
+	color: var(--color8);
+}
+
+form{
+	background-color: var(--color2);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+    padding: var(--paddingGeneral);
+}
+
+.main_formulario input[type="text"],
+select, input[type="file"] {
+	width: 50%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: var(--color6);
+    color: var(--color1);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 20%;
+    margin-top: 40px;
+    font-size: 17px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color7);
+    color: var(--color3);
+}
+
+.backup{
+	color: var(--color1);
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: var(--color6);
+    margin-top: 50px;
+}
+

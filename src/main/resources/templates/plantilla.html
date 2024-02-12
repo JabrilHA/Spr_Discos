@@ -1,0 +1,30 @@
+<div th:fragment="cabecera">
+	<header>
+        <div id ="header_izq">
+            <img th:src="@{/images/disco.webp}" alt ="Logo" width="80px" height="80px">
+        </div>
+        <div id ="header_der">
+            <h1>Mis Discos</h1>
+        </div>
+    </header>
+</div>
+
+<div th:fragment="menu">
+	<nav>
+		<ul>
+			<li>
+				<a th:href="@{/menu_home}" class="enlace">Home</a>
+			</li>
+			<li>
+				<a th:href="@{/menu_admin}" class="enlace">Administración</a>
+			</li>
+		</ul>
+	</nav>
+	<div class="mensaje"> <p th:text="${session.mensaje}"></p></div>
+</div>
+
+<div th:fragment="pie">
+	 <footer>
+        <p>Designed by: Jabril</p>
+    </footer>
+</div>
