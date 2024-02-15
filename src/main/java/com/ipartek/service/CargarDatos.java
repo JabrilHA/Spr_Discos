@@ -18,6 +18,10 @@ public class CargarDatos {
 	@Autowired
 	IDiscoService discoService;
 	
+	/**
+	 * Funcion que nos carga estilos y disco en la BD al iniciar la aplicaccion web.
+	 * 
+	 */
 	@PostConstruct
 	@Transactional
 	public void cargarDatos() {

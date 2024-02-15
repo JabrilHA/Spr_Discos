@@ -13,12 +13,22 @@ public class EstiloServiceImpl implements IEstiloService{
 	@Autowired
 	private EstiloRepository estiloRepo;
 
+	/**
+	 * Funcion que nos permite guardar un estilo en la BD.
+	 * 
+	 * @param estilo estilo que queremos insertar en la BD.
+	 */
 	@Override
 	public void insertarEstilo(Estilo estilo) {
 		estiloRepo.save(estilo);
 		
 	}
 
+	/**
+	 * Funcion que nos permite obtener todos los estilos de la BD
+	 * 
+	 * @return una lista de todos los estilos.
+	 */
 	@Override
 	public List<Estilo> ObtenerTodosEstilos() {
 		List<Estilo> listaEstilo = estiloRepo.findAll();

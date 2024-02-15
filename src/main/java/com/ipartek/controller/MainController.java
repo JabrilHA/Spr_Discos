@@ -19,6 +19,15 @@ public class MainController {
 	@Autowired
 	private IDiscoService discoService;
 	
+	/**
+	 * Pagina de inicio de  la pagina web.
+	 * 
+	 * Tras redirigir a localhost:8080 llevara a esta pagina 
+	 * 
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "home.html"
+	 */
 	@RequestMapping("/")
 	public String cargarInicio(Model model,HttpSession session) {
 		GestorMensajes.borrarMensaje(session);

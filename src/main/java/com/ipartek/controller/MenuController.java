@@ -23,6 +23,15 @@ public class MenuController {
 	@Autowired
 	private IEstiloService estiloService;
 	
+	/**
+	 * Pagina de home de  la pagina web.
+	 * 
+	 * Tras redirigir a localhost:8080/menu_home llevara a esta pagina 
+	 * 
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "home.html"
+	 */
 	@RequestMapping("/menu_home")
 	public String menuHome(Model model,HttpSession session) {
 		GestorMensajes.borrarMensaje(session);
@@ -31,7 +40,15 @@ public class MenuController {
 		
 		return "/home";
 	}
-	
+	/**
+	 * Pagina de Administracion de  la pagina web.
+	 * 
+	 * Taras redirigir a localhost:8080/menu_admin llevara a esta pagina 
+	 * 
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "admin.html"
+	 */
 	@RequestMapping("/menu_admin")
 	public String menuAdmin(Model model,HttpSession session) {
 		GestorMensajes.borrarMensaje(session);

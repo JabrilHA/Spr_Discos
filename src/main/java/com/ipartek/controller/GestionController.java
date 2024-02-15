@@ -35,6 +35,17 @@ public class GestionController {
 	@Autowired
 	private IEstiloService estiloService;
 	
+	/**
+	 * Funcion que nos permite guardar un disco nuevo en la base de datos.
+	 * 
+	 * Tras redirigir a localhost:8080/guardarDisco llevara a esta pagina 
+	 * 
+	 * @param objeto_entidad el objeto para rellenar el formulario
+	 * @param file objeto de tipo archivo que nos permite gestionarlo para guardarlo en una ruta local.
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "admin.html"
+	 */
 	@RequestMapping("/guardarDisco")
 	public String guardarDisco(@ModelAttribute @Validated Disco objeto_entidad, BindingResult result ,
 			@RequestParam("foto") MultipartFile file, Model model,HttpSession session) {
@@ -64,6 +75,15 @@ public class GestionController {
 		return "/admin";
 	}
 	
+	/**
+	 * Funcion que nos permite guardar una copia de seguridad de la base de datos.
+	 * 
+	 * Tras redirigir a localhost:8080/crear_copia llevara a esta pagina 
+	 * 
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "admin.html"
+	 */
 	@RequestMapping("/crear_copia")
 	public String crear_copia(Model model,HttpSession session) {
 		
@@ -89,6 +109,15 @@ public class GestionController {
 		return "/admin";
 	}
 	
+	/**
+	 * Funcion que nos lleva a una pagina para modificar un disco que se encuentra en la BD.
+	 * 
+	 * Tras redirigir a localhost:8080/modificarDisco/"id del disco" llevara a esta pagina 
+	 * 
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param id atributo que recogemos de la url el cual nos indica el id del objeto a modificar.
+	 * @return tras hacerlo va a "modificar.html"
+	 */
 	@RequestMapping("/modificarDisco/{id}")
 	public String modificarDisco(Model model,@PathVariable int id) {
 		Optional<Disco> disco = discoService.buscarDiscoPorId(id);
@@ -100,6 +129,15 @@ public class GestionController {
 		return "/modificar";
 	}
 	
+	/**
+	 * Funcion que nos permite modificar un disco que se encuentra en la BD.
+	 * 
+	 * Tras redirigir a localhost:8080/modificacionDiscoCreado llevara a esta pagina 
+	 * 
+	 * @param objeto_entidad el objeto para rellenar el formulario
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "modificar.html"
+	 */
 	@RequestMapping("/modificacionDiscoCreado")
 	public String modificacionProductoCreada(@ModelAttribute Disco objeto_entidad,HttpSession session) {
 		discoService.guardarDisco(objeto_entidad);
@@ -109,6 +147,16 @@ public class GestionController {
 		return "redirect:/modificarDisco/" + id;
 	}
 	
+	/**
+	 * Funcion que nos permite eliminar un disco de la base de datos.
+	 * 
+	 * Tras redirigir a localhost:8080/crear_copieliminarDisco/"id disco" llevara a esta pagina 
+	 * 
+	 * @param id atributo que recogemos de la url el cual nos indica el id del objeto a eliminar.
+	 * @param model atributos del modelo de datos para tener acceso a los atributos 
+	 * @param session crea una sesion donde se guardan objetos que podemos mostrar o eliminar.
+	 * @return tras hacerlo va a "home.html"
+	 */
 	@RequestMapping("/eliminarDisco/{id}")
 	public String eliminarDisco(@PathVariable int id, Model model,HttpSession session) {
 		discoService.eliminarDisco(id);
